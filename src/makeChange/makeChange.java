@@ -17,13 +17,30 @@ public class makeChange {
 	return payment;
 	}
 		
+	public static double addMore() {
+		Scanner kb = new Scanner(System.in);
+		System.out.println("How much more would you like to add to your payment?");
+		double newPay = kb.nextDouble();
+		return newPay;
+	}
 	
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		double amount = Total();
 		double pay = Payment();
-		if (amount > pay) {
-			System.out.println("Well that's not enough, please provide at least " + (amount - pay)  + " more");
+		while (amount >= pay) {
+		if (amount == pay) {
+			System.out.print("Thank you for providing exact change! Have a nice day!");
+		}
+		else if (amount > pay) {
+			System.out.println("Well that's not enough, please provide at least " + (amount - pay)  + " more\n");
+			double newPay = addMore();
+			pay = pay + newPay;
+		}
+		else {
+			System.out.println("Thank you for your payment. Let me grab your change... \n\n");
+		}
+
 		}
 	}
 
