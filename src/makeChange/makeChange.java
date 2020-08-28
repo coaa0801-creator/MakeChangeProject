@@ -20,11 +20,11 @@ public class makeChange {
 	
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-		Total();
-		Payment();
-		
-		
-		
+		double amount = Total();
+		double pay = Payment();
+		if (amount > pay) {
+			System.out.println("Well that's not enough, please provide at least " + (amount - pay)  + " more");
+		}
 	}
 
 }
