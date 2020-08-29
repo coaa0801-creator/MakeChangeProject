@@ -9,3 +9,11 @@ The program then compares the two values given to determine if the payment is su
 This is where things get spicy since you want the bills and coins counted out casino style. Double initialized numbers hold a lot of decimal value so there are issues with boolean evaluations of whole numbers to truncated numbers. I made some slight adjustments to some of the smaller denominations to account for the rounding issues.
 
 The program pops out the quantity of each denomination and the total amount being given back for verification. The program then thanks you for your purchase and then prompts if you would like to make another purchase or leave once again. Upon choosing leave you are given a goodbye message and the program terminates.
+
+## Step by Step (Short version)
+1. Choose Purchase or Leave
+2. Enter Purchase amount
+3. Enter Payment amount
+\t3a.Make adjustments to Payment amount
+4. Receive Change amount
+5. Choose Purchase or Leave
