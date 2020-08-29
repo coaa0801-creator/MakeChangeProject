@@ -7,7 +7,21 @@ public class makeChange {
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-//		DecimalFormat rndDiff = new DecimalFormat("#.00");
+		boolean leave = true;
+		System.out.println("Thank you for coming in!!");
+		while(leave) {
+			System.out.print("\nWould you like to make a PURCHASE or LEAVE?   ");
+			String hereOrGo = kb.nextLine();
+		switch (hereOrGo) {
+		case "LEAVE":
+		case "leave":
+		case "Leave": goodBye(); leave = false;
+		break;
+		case "PURCHASE":
+		case "Purchase":
+		case "purchase":
+			
+		DecimalFormat rndDiff = new DecimalFormat("#.00");
 		double amount = Total();
 		double pay = Payment();
 		boolean payBad = true;
@@ -21,17 +35,23 @@ public class makeChange {
 				System.out.print("\nThank you for providing exact change! Have a nice day!\n");
 				break;
 			} else if (amount > pay) {
-				DecimalFormat rndDiff = new DecimalFormat("#.00");
+//				rndDiff = new DecimalFormat("#.00");
 				System.out.print("\nWell that's not enough... \n\nPlease provide at least $"
 						+ (rndDiff.format(amount - pay)) + " more\n");
 				double newPay = addMore();
 				pay = pay + newPay;
 			}
 		}
-		kb.close();
 
 		thankYou();
+		break;
+		default: 
+			System.out.println("I'm sorry, I can't help you with that...");
+		}
+		}
+		kb.close();
 	}
+	
 
 	public static Double Currency(double change) {
 		int quantity = 0;
@@ -119,7 +139,7 @@ public class makeChange {
 				do {
 					change = change - .25;
 					quantity++;
-				} while ((change - .25) > 0);
+				} while ((change - .25) >= 0);
 			}
 			while ((change - 0.25) > 0) {
 				change = change % 1;
@@ -132,13 +152,13 @@ public class makeChange {
 				System.out.println(quantity + " - Quarters ");
 			}
 		}
-		if (change >= .01) {
+		if (change >= .10) {
 			quantity = 0;
 			if ((change % .10) == 0) {
 				do {
 					change = change - .10;
 					quantity++;
-				} while ((change - 0.10) > 0);
+				} while ((change - 0.10) >= 0);
 			}
 			while ((change - .099) > 0) {
 				change = change % .25;
@@ -207,7 +227,7 @@ public class makeChange {
 
 	public static double Total() {
 		Scanner kb = new Scanner(System.in);
-		System.out.print("Thank you for coming in!\n\nWhat is the total on the items you have there?   ");
+		System.out.print("\nWhat is the total on the items you have there?   ");
 		double total = kb.nextDouble();
 		if (total < 0) {
 			System.out.print(
@@ -241,6 +261,10 @@ public class makeChange {
 
 	public static void thankYou() {
 		System.out.println("\n<----------------->" + "\n|                 |" + "\n|   Thank you!!   |"
+				+ "\n|                 |" + "\n<----------------->");
+	}
+	public static void goodBye() {
+		System.out.println("\n<----------------->" + "\n|                 |" + "\n|    Goodbye!!    |"
 				+ "\n|                 |" + "\n<----------------->");
 	}
 }
