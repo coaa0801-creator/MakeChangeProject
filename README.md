@@ -14,6 +14,7 @@ The program pops out the quantity of each denomination and the total amount bein
 1. Choose Purchase or Leave
 2. Enter Purchase amount
 3. Enter Payment amount
+
     3a.Make adjustments to Payment amount
 4. Receive Change amount
 5. Choose Purchase or Leave
