@@ -14,19 +14,20 @@ public class makeChange {
 				System.out.print("Thank you for providing exact change! Have a nice day!");
 			} else if (amount > pay) {
 				DecimalFormat rndDiff = new DecimalFormat("#.00");
-				System.out.print("Well that's not enough... \n\nPlease provide at least $" + (rndDiff.format(amount - pay))
-						+ " more\n");
+				System.out.print("\nWell that's not enough... \n\nPlease provide at least $"
+						+ (rndDiff.format(amount - pay)) + " more\n");
 				double newPay = addMore();
 				pay = pay + newPay;
 			}
 		}
 		System.out.println("\nThank you for your payment. Let me grab your change... \n");
-		System.out.println(GetChange(amount, pay));
+		GetChange(amount, pay);
 		kb.close();
 	}
 
-	public static String Currency(double change) {
+	public static Double Currency(double change) {
 		int quantity = 0;
+//		System.out.println(change);//check change value
 		if (change >= 20) {
 			if ((change % 20) == 0) {
 				do {
@@ -104,7 +105,7 @@ public class makeChange {
 				System.out.println(quantity + " - $1 bills ");
 			}
 		}
-		if (change >= .25) {
+		if (change >= .249) {
 			quantity = 0;
 			if ((change % .25) == 0) {
 				do {
@@ -123,7 +124,7 @@ public class makeChange {
 				System.out.println(quantity + " - Quarters ");
 			}
 		}
-		if (change >= .10) {
+		if (change >= .099) {
 			quantity = 0;
 			if ((change % .10) == 0) {
 				do {
@@ -131,7 +132,7 @@ public class makeChange {
 					quantity++;
 				} while ((change - 0.10) > 0);
 			}
-			while ((change - .10) > 0) {
+			while ((change - .099) > 0) {
 				change = change % .25;
 				change = change - .10;
 				quantity++;
@@ -142,7 +143,7 @@ public class makeChange {
 				System.out.println(quantity + " - Dimes ");
 			}
 		}
-		if (change >= .05) {
+		if (change >= .049) {
 			quantity = 0;
 			if ((change % .05) == 0) {
 				do {
@@ -150,7 +151,7 @@ public class makeChange {
 					quantity++;
 				} while ((change - .05) > 0);
 			}
-			while ((change - .05) > 0) {
+			while ((change - .049) > 0) {
 				change = change % .10;
 				change = change - .05;
 				quantity++;
@@ -161,15 +162,16 @@ public class makeChange {
 				System.out.println(quantity + " - Nickels ");
 			}
 		}
-		if (change >= .01) {
+		if (change >= .009) {
 			quantity = 0;
+		
 			if ((change % .01) == 0) {
 				do {
 					change = change - .01;
 					quantity++;
-				} while ((change - .01) > -.01);
+				} while ((change - .01) >= 0);
 			}
-			while ((change - .01) > -.01) {
+			while ((change - .009) >= 0) {
 				change = change % .05;
 				change = change - .01;
 				quantity++;
@@ -181,17 +183,19 @@ public class makeChange {
 			}
 		}
 
-		return "";
+		return change;
 
 	}
 
-	public static String GetChange(double amount, double pay) {
+	public static Double GetChange(double amount, double pay) {
 		DecimalFormat rndDiff = new DecimalFormat("#.00");
 		double changeNeeded = pay - amount;
 		System.out.println("Looks like that will be $" + (rndDiff.format(changeNeeded)) + " coming back to you\n\n");
+//		System.out.println(changeNeeded); check Change needed transfer double number
 		Currency(changeNeeded);
+		
 
-		return "\n\nThank You!!";
+		return changeNeeded;
 	}
 
 	public static double Total() {
@@ -202,7 +206,7 @@ public class makeChange {
 			System.out.print(
 					"\nI'm sorry, this isn't the counter for returns. \n\nIf you'd like to purchase something, could you please give me the total?   ");
 			total = kb.nextDouble();
-		
+
 		}
 		return total;
 	}
