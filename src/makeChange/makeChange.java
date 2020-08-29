@@ -196,11 +196,11 @@ public class makeChange {
 
 	public static double Total() {
 		Scanner kb = new Scanner(System.in);
-		System.out.print("Thank you for coming in!\n\nWhat is the total on the items you have there?\t");
+		System.out.print("Thank you for coming in!\n\nWhat is the total on the items you have there?   ");
 		double total = kb.nextDouble();
 		if (total < 0) {
 			System.out.print(
-					"\nI'm sorry, this isn't the counter for returns. \n\nIf you'd like to purchase something, could you please give me the total?\t");
+					"\nI'm sorry, this isn't the counter for returns. \n\nIf you'd like to purchase something, could you please give me the total?   ");
 			total = kb.nextDouble();
 		
 		}
@@ -209,11 +209,11 @@ public class makeChange {
 
 	public static double Payment() {
 		Scanner kb = new Scanner(System.in);
-		System.out.print("\nWhoa! What amount were you thinking of paying?\t");
+		System.out.print("\nWhoa! What amount were you thinking of paying?   ");
 		double payment = kb.nextDouble();
 		if (payment < 0) {
 			System.out.print(
-					"\nI'm sorry, I can't pay you to take it no matter how crappy you think the quality is. \n\nYou must provide at least the total amount. What amount would you be paying?\t");
+					"\nI'm sorry, I can't pay you to take it no matter how crappy you think the quality is. \n\nYou must provide at least the total amount. What amount would you be paying?   ");
 			payment = kb.nextDouble();
 		}
 		return payment;
@@ -221,7 +221,7 @@ public class makeChange {
 
 	public static double addMore() {
 		Scanner kb = new Scanner(System.in);
-		System.out.print("\nHow much more would you like to add to your payment?\t");
+		System.out.print("\nHow much more would you like to add to your payment?   ");
 		double newPay = kb.nextDouble();
 		return newPay;
 	}
