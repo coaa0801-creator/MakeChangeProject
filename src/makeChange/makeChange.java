@@ -1,9 +1,9 @@
 package makeChange;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class makeChange {
-	
 	public static double Total() {
 		Scanner kb = new Scanner(System.in);
 		System.out.print("Thank you for coming in!\n\nWhat is the total on the items you have there?  ");
@@ -33,15 +33,17 @@ public class makeChange {
 			System.out.print("Thank you for providing exact change! Have a nice day!");
 		}
 		else if (amount > pay) {
-			System.out.println("Well that's not enough, please provide at least " + (amount - pay)  + " more\n");
+			DecimalFormat rndDiff = new DecimalFormat("#.00");
+			System.out.print("Well that's not enough, please provide at least $" + (rndDiff.format(amount - pay)) + " more\n");
 			double newPay = addMore();
 			pay = pay + newPay;
-		}
-		else {
-			System.out.println("Thank you for your payment. Let me grab your change... \n\n");
-		}
+		}}
+		System.out.println("Thank you for your payment. Let me grab your change... \n\n");
+		
+		
+		
 
 		}
 	}
 
-}
+
