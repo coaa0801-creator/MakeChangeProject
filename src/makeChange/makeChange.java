@@ -27,22 +27,37 @@ kb.close();
 	}
 	public static String Currency(double change) {
 		int quantity = 0;
-		if (change > 20) {
+		if (change >= 20) {
+			if ((change % 20) == 0) {
+				do {
+				change = change - 20;
+				quantity++;
+			} while ((change - 20) > 0);
+				}
+			
 			do {
 				change = change - 20;
 				quantity++;
 			} while ((change - 20) > 0);
+			
 			if (quantity == 1) {
 				System.out.println(quantity + " - $20 bill ");
 			} else {
 				System.out.println(quantity + " - $20 bills ");
 			}
-		}
+			}
 		
-		if (change > 10) {
+		
+		if (change >= 10) {
+			quantity = 0;
+			if ((change % 10) == 0) {
+				do {
+					change = change - 10;
+					quantity++;
+				} while ((change - 10) > 0);
+			}
 			do {
 				change = change % 20;
-				quantity = 0;
 				change = change - 10;
 				quantity++;
 			} while ((change - 10) > 0);
@@ -52,10 +67,16 @@ kb.close();
 				System.out.println(quantity + " - $10 bills ");
 			}
 		}
-		if (change > 5) {
+		if (change >= 5) {
+			quantity = 0;
+			if ((change % 5) == 0) {
+				do {
+					change = change - 5;
+					quantity++;
+				} while ((change - 5) > 0);
+			}
 			do {
 				change = change % 10;
-				quantity = 0;
 				change = change - 5;
 				quantity++;
 			} while ((change - 5) > 0);
@@ -65,10 +86,16 @@ kb.close();
 				System.out.println(quantity + " - $5 bills ");
 			}
 		}
-		if (change > 1) {
+		if (change >=1) {
+			quantity = 0;
+			if ((change % 1) == 0) {
+				do {
+					change = change - 1;
+					quantity++;
+				} while ((change - 1) > 0);
+			}
 			do {
 				change = change % 5;
-				quantity = 0;
 				change = change - 1;
 				quantity++;
 			} while ((change - 1) > 0);
@@ -78,10 +105,16 @@ kb.close();
 				System.out.println(quantity + " - $1 bills ");
 			}
 		}
-		if (change > 0.25) {
+		if (change >= .25) {
+			quantity = 0;
+			if ((change % .25) == 0) {
+				do {
+					change = change - .25;
+					quantity++;
+				} while ((change - .25) > 0);
+			}
 			do {
 				change = change % 1;
-				quantity = 0;
 				change = change - 0.25;
 				quantity++;
 			} while ((change - 0.25) > 0);
@@ -91,39 +124,57 @@ kb.close();
 				System.out.println(quantity + " - Quarters ");
 			}
 		}
-		if (change > 0.10) {
+		if (change >= .10) {
+			quantity = 0;
+			if ((change % .10) == 0) {
+				do {
+					change = change - .10;
+					quantity++;
+				} while ((change - 0.10) > 0);
+			}
 			do {
-				change = change % 0.25;
-				quantity = 0;
-				change = change - 0.10;
+				change = change % .25;
+				change = change - .10;
 				quantity++;
-			} while ((change - 0.10) > 0);
+			} while ((change - .10) > 0);
 			if (quantity == 1) {
 				System.out.println(quantity + " - Dime ");
 			} else {
 				System.out.println(quantity + " - Dimes ");
 			}
 		}
-		if (change > 0.05) {
+		if (change >= .05) {
+			quantity = 0;
+			if ((change % .05) == 0) {
+				do {
+					change = change - .05;
+					quantity++;
+				} while ((change - .05) > 0);
+			}
 			do {
-				change = change % 0.10;
-				quantity = 0;
-				change = change - 0.05;
+				change = change % .10;
+				change = change - .05;
 				quantity++;
-			} while ((change - 0.05) > 0);
+			} while ((change - .05) > 0);
 			if (quantity == 1) {
 				System.out.println(quantity + " - Nickel ");
 			} else {
 				System.out.println(quantity + " - Nickels ");
 			}
 		}
-		if (change > 0.01) {
+		if (change >= -.01) {
+			quantity = 0;
+			if ((change % .01) == 0) {
+				do {
+					change = change - .01;
+					quantity++;
+				} while ((change - .01) > 0);
+			}
 			do {
-				change = change % 0.05;
-				quantity = 0;
-				change = change - 0.01;
+				change = change % .05;
+				change = change - .01;
 				quantity++;
-			} while ((change - 0.01) > 0);
+			} while ((change - .01) > -.01);
 			if (quantity == 1) {
 				System.out.println(quantity + " - Penny ");
 			} else {
