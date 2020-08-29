@@ -23,6 +23,8 @@ public class makeChange {
 		System.out.println("\nThank you for your payment. Let me grab your change... \n");
 		GetChange(amount, pay);
 		kb.close();
+		
+		thankYou();
 	}
 
 	public static Double Currency(double change) {
@@ -190,7 +192,7 @@ public class makeChange {
 	public static Double GetChange(double amount, double pay) {
 		DecimalFormat rndDiff = new DecimalFormat("#.00");
 		double changeNeeded = pay - amount;
-		System.out.println("Looks like that will be $" + (rndDiff.format(changeNeeded)) + " coming back to you\n\n");
+		System.out.println("Looks like that will be $" + (rndDiff.format(changeNeeded)) + " coming back to you\n");
 //		System.out.println(changeNeeded); check Change needed transfer double number
 		Currency(changeNeeded);
 		
@@ -217,7 +219,7 @@ public class makeChange {
 		double payment = kb.nextDouble();
 		if (payment < 0) {
 			System.out.print(
-					"\nI'm sorry, I can't pay you to take it no matter how crappy you think the quality is. \n\nYou must provide at least the total amount. What amount would you be paying?   ");
+					"\nI'm sorry, I can't pay you to take it... No, it makes no difference how crappy you think the quality is. \n\nYou must provide at least the total amount. What amount would you be paying?   ");
 			payment = kb.nextDouble();
 		}
 		return payment;
@@ -229,4 +231,11 @@ public class makeChange {
 		double newPay = kb.nextDouble();
 		return newPay;
 	}
+public static void thankYou() {
+	System.out.println("\n<----------------->"
+			+		 "\n|                 |"
+			+        "\n|   Thank you!!   |"
+			+ 		 "\n|                 |"
+			+		 "\n<----------------->");
+}
 }
