@@ -9,49 +9,49 @@ public class makeChange {
 		Scanner kb = new Scanner(System.in);
 		boolean leave = true;
 		System.out.println("Thank you for coming in!!");
-		while(leave) {
+		while (leave) {
 			System.out.print("\nWould you like to make a PURCHASE or LEAVE?   ");
 			String hereOrGo = kb.nextLine();
-		switch (hereOrGo) {
-		case "LEAVE"://termination case fall through
-		case "leave":
-		case "Leave": goodBye(); leave = false; // kills loop, calls goodbye sysout line 304
-		break;
-		case "PURCHASE"://purchase case fall through
-		case "Purchase":
-		case "purchase":
-			
-		DecimalFormat rndDiff = new DecimalFormat("#.00"); //rounding import class
-		double amount = Total(); //prompt for bill method line 266
-		double pay = Payment();//prompt for payment method line 279
-		boolean payBad = true;
-		while (payBad) {
-			if (pay > amount) {
-				System.out.println("\nThank you for your payment. Let me grab your change... \n");
-				payBad = false;
-				GetChange(amount, pay);
-			}
-			else if (amount == pay) {
-				System.out.print("\nThank you for providing exact change! Have a nice day!\n");
+			switch (hereOrGo) {
+			case "LEAVE":// termination case fall through
+			case "leave":
+			case "Leave":
+				goodBye();
+				leave = false; // kills loop, calls goodbye sysout line 304
 				break;
-			} else if (amount > pay) {
-//				rndDiff = new DecimalFormat("#.00");
-				System.out.print("\nWell that's not enough... \n\nPlease provide at least $"
-						+ (rndDiff.format(amount - pay)) + " more\n");
-				double newPay = addMore();
-				pay = pay + newPay;
-			}
-		}
+			case "PURCHASE":// purchase case fall through
+			case "Purchase":
+			case "purchase":
 
-		thankYou();// calls sysout for thank you
-		break;
-		default: // catches mispellings etc.. Sends back to the top
-			System.out.println("I'm sorry, I can't help you with that...");
-		}
+				DecimalFormat rndDiff = new DecimalFormat("#.00"); // rounding import class
+				double amount = Total(); // prompt for bill method line 266
+				double pay = Payment();// prompt for payment method line 279
+				boolean payBad = true;
+				while (payBad) {
+					if (pay > amount) {
+						System.out.println("\nThank you for your payment. Let me grab your change... \n");
+						payBad = false;
+						GetChange(amount, pay);
+					} else if (amount == pay) {
+						System.out.print("\nThank you for providing exact change! Have a nice day!\n");
+						break;
+					} else if (amount > pay) {
+//				rndDiff = new DecimalFormat("#.00");
+						System.out.print("\nWell that's not enough... \n\nPlease provide at least $"
+								+ (rndDiff.format(amount - pay)) + " more\n");
+						double newPay = addMore();
+						pay = pay + newPay;
+					}
+				}
+
+				thankYou();// calls sysout for thank you
+				break;
+			default: // catches mispellings etc.. Sends back to the top
+				System.out.println("\nI'm sorry, I can't help you with that...");
+			}
 		}
 		kb.close();
 	}
-	
 
 	public static Double Currency(double change) {
 		int quantity = 0;
@@ -63,18 +63,18 @@ public class makeChange {
 					quantity++;
 				} while ((change - 100) >= 0);
 			}
-			
+
 			while ((change - 100 > 0)) {
 				change = change - 100;
 				quantity++;
 			}
-			
+
 			if (quantity == 1) {
 				System.out.println(quantity + " - $100 bill ");
 			} else {
 				System.out.println(quantity + " - $100 bills ");
 			}
-		}																//100s end	
+		} // 100s end
 		if (change >= 50) {
 			if ((change % 50) == 0) {
 				do {
@@ -82,17 +82,17 @@ public class makeChange {
 					quantity++;
 				} while ((change - 50) >= 0);
 			}
-			
+
 			while ((change - 50 > 0)) {
 				change = change - 50;
 				quantity++;
 			}
-			
+
 			if (quantity == 1) {
 				System.out.println(quantity + " - $50 bill ");
 			} else {
 				System.out.println(quantity + " - $50 bills ");
-			}																//50s end	
+			} // 50s end
 		}
 		if (change >= 20) {
 			if ((change % 20) == 0) {
@@ -112,7 +112,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $20 bills ");
 			}
-		}																	//20s end	
+		} // 20s end
 
 		if (change >= 10) {
 			quantity = 0;
@@ -132,7 +132,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $10 bills ");
 			}
-		}																	//10s end	
+		} // 10s end
 		if (change >= 5) {
 			quantity = 0;
 			if ((change % 5) == 0) {
@@ -151,7 +151,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $5 bills ");
 			}
-		}																	//5s end	
+		} // 5s end
 		if (change >= 1) {
 			quantity = 0;
 			if ((change % 1) == 0) {
@@ -170,7 +170,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $1 bills ");
 			}
-		}																	//1s end	
+		} // 1s end
 		if (change >= .25) {
 			quantity = 0;
 			if ((change % .25) == 0) {
@@ -189,7 +189,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Quarters ");
 			}
-		}																// Quarters end
+		} // Quarters end
 		if (change >= .10) {
 			quantity = 0;
 			if ((change % .10) == 0) {
@@ -208,8 +208,8 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Dimes ");
 			}
-		}																							//Dimes end
-		if (change >= .049) {//changed to .049 from .05 to catch rounding errors "floating pennies"
+		} // Dimes end
+		if (change >= .049) {// changed to .049 from .05 to catch rounding errors "floating pennies"
 			quantity = 0;
 			if ((change % .05) == 0) {
 				do {
@@ -227,7 +227,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Nickels ");
 			}
-		}																						//Nickels end
+		} // Nickels end
 		if (change >= .009) { // Changed to .009 instead of .01 to catch "floating pennies"
 			quantity = 0;
 
@@ -239,7 +239,7 @@ public class makeChange {
 			}
 			while ((change - .009) >= 0) {
 				change = change % .05;
-				change = change - .01;
+				change = change - .009;
 				quantity++;
 			}
 			if (quantity == 1) {
@@ -247,7 +247,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Pennies ");
 			}
-		}																		//Pennies end
+		} // Pennies end
 
 		return change;// doesn't get used but it fulfills the duty of returning a double
 
@@ -255,9 +255,10 @@ public class makeChange {
 
 	public static Double GetChange(double amount, double pay) {
 		DecimalFormat rndDiff = new DecimalFormat("#.00");
-		double changeNeeded = pay - amount;// tried to send this number to Currency method a slew of different ways, couldn't find it
+		double changeNeeded = pay - amount;// tried to send this number to Currency method a slew of different ways,
+											// couldn't find it
 		System.out.println("Looks like that will be $" + (rndDiff.format(changeNeeded)) + " coming back to you\n");
-//		System.out.println(changeNeeded); check Change needed transfer double number
+//		System.out.println(changeNeeded); //check changeNeeded transfer double number
 		Currency(changeNeeded);
 
 		return changeNeeded;
@@ -272,13 +273,14 @@ public class makeChange {
 					"\nI'm sorry, this isn't the counter for returns. \n\nIf you'd like to purchase something, could you please give me the total?   ");
 			total = kb.nextDouble();
 		}
+		total = Taxes(total);
 //		System.out.println(total);//check total value
 		return total;
 	}
 
 	public static double Payment() {
 		Scanner kb = new Scanner(System.in);
-		System.out.print("\nWhoa! What amount were you thinking of paying?   ");
+		System.out.print("\nWhoa! Where are you going? What amount were you thinking of paying?   ");
 		double payment = kb.nextDouble();
 		if (payment < 0) {
 			System.out.print(
@@ -297,10 +299,51 @@ public class makeChange {
 		return newPay;
 	}
 
+	public static double Taxes(double total) {
+		Scanner kb = new Scanner(System.in);
+		DecimalFormat rndDiff = new DecimalFormat("#.00");
+//	System.out.println(total);//test total value
+		System.out.print("\nRemind me again were the taxes included? YES or NO   ");
+		double taxValue = 0.0831;
+		double taxPercent = taxValue * 100;
+		String city = "Denver";
+		boolean taxSwitch = true;
+		while (taxSwitch) {
+			String tax = kb.nextLine();
+			switch (tax) {
+			case "YES":
+			case "yes":
+			case "Yes":
+			case "Tax included":
+			case "tax inc":
+				System.out.println("\nAlrighty... well your total is $" + total + " then   ");
+				taxSwitch = false;
+				break;
+			case "NO":
+			case "No tax":
+			case "no":
+			case "No":
+				double taxAmount = total * taxValue;
+				System.out.println("\nWell... the tax in " + city + " here is " + rndDiff.format(taxPercent) + "% so we'll have to add that $"
+						+ rndDiff.format(taxAmount) + " in...   ");
+				total = (total * taxValue) + total;
+				System.out.println("\nYour new total is $" + rndDiff.format(total) + " after taxes are added...");
+				taxSwitch = false;
+				break;
+			default:
+				System.out.print(
+						"\nSeriously?? You see all the people behind you?\n\nIs the tax included?  YES or NO   ");
+
+			}
+		}
+		return total;
+	}
+
 	public static void thankYou() {
 		System.out.println("\n<----------------->" + "\n|                 |" + "\n|   Thank you!!   |"
 				+ "\n|                 |" + "\n<----------------->");
 	}
+
 	public static void goodBye() {
 		System.out.println("\n<----------------->" + "\n|                 |" + "\n|    Goodbye!!    |"
 				+ "\n|                 |" + "\n<----------------->");
