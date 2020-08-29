@@ -1,5 +1,9 @@
 ## ![Logo](http://skilldistillery.com/downloads/sd_logo.jpg) Aaron Cottrell
 ## Make Change Project
+
+## Overview
+The program is designed to take user input on a cash transaction and return the remainder with denominations including $100, $50, $20, $10, $5, $1, Quarters, Dimes, Nickels and Pennies.
+
 ## Step by Step (Short version)
 1. Choose Purchase or Leave
 2. Enter Purchase amount
@@ -9,8 +13,6 @@
 4. Receive Change amount
 5. Choose Purchase or Leave
 
-## Overview
-The program is designed to take user input on a cash transaction and return the remainder with denominations including $100, $50, $20, $10, $5, $1, Quarters, Dimes, Nickels and Pennies.
 
 ## Walkthrough (Long Version)
 From the user side, the program is very simple. You are prompted whether you'd like to make a purchase or leave. You are prompted for the total of what you intend to purchase. The program will then ask you how you intend to pay. Both of these numbers must be positive doubles or 2 place decimal numbers. In the event you attempt to enter another type number you will be met with a friendly error message explaining why you can't enter the amount you chose. If you chose a negative number, you will be prompted for a new number until you provide a workable value. If the value contains too many places beyond the decimal point, the program will round this value to the hundreth's place.
