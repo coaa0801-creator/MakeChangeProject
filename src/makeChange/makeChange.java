@@ -13,17 +13,17 @@ public class makeChange {
 			System.out.print("\nWould you like to make a PURCHASE or LEAVE?   ");
 			String hereOrGo = kb.nextLine();
 		switch (hereOrGo) {
-		case "LEAVE":
+		case "LEAVE"://termination case fall through
 		case "leave":
-		case "Leave": goodBye(); leave = false;
+		case "Leave": goodBye(); leave = false; // kills loop, calls goodbye sysout line 304
 		break;
-		case "PURCHASE":
+		case "PURCHASE"://purchase case fall through
 		case "Purchase":
 		case "purchase":
 			
-		DecimalFormat rndDiff = new DecimalFormat("#.00");
-		double amount = Total();
-		double pay = Payment();
+		DecimalFormat rndDiff = new DecimalFormat("#.00"); //rounding import class
+		double amount = Total(); //prompt for bill method line 266
+		double pay = Payment();//prompt for payment method line 279
 		boolean payBad = true;
 		while (payBad) {
 			if (pay > amount) {
@@ -43,9 +43,9 @@ public class makeChange {
 			}
 		}
 
-		thankYou();
+		thankYou();// calls sysout for thank you
 		break;
-		default: 
+		default: // catches mispellings etc.. Sends back to the top
 			System.out.println("I'm sorry, I can't help you with that...");
 		}
 		}
@@ -56,6 +56,44 @@ public class makeChange {
 	public static Double Currency(double change) {
 		int quantity = 0;
 //		System.out.println(change);//check change value
+		if (change >= 100) {
+			if ((change % 100) == 0) {
+				do {
+					change = change - 100;
+					quantity++;
+				} while ((change - 100) >= 0);
+			}
+			
+			while ((change - 100 > 0)) {
+				change = change - 100;
+				quantity++;
+			}
+			
+			if (quantity == 1) {
+				System.out.println(quantity + " - $100 bill ");
+			} else {
+				System.out.println(quantity + " - $100 bills ");
+			}
+		}																//100s end	
+		if (change >= 50) {
+			if ((change % 50) == 0) {
+				do {
+					change = change - 50;
+					quantity++;
+				} while ((change - 50) >= 0);
+			}
+			
+			while ((change - 50 > 0)) {
+				change = change - 50;
+				quantity++;
+			}
+			
+			if (quantity == 1) {
+				System.out.println(quantity + " - $50 bill ");
+			} else {
+				System.out.println(quantity + " - $50 bills ");
+			}																//50s end	
+		}
 		if (change >= 20) {
 			if ((change % 20) == 0) {
 				do {
@@ -74,7 +112,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $20 bills ");
 			}
-		}
+		}																	//20s end	
 
 		if (change >= 10) {
 			quantity = 0;
@@ -94,7 +132,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $10 bills ");
 			}
-		}
+		}																	//10s end	
 		if (change >= 5) {
 			quantity = 0;
 			if ((change % 5) == 0) {
@@ -113,7 +151,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $5 bills ");
 			}
-		}
+		}																	//5s end	
 		if (change >= 1) {
 			quantity = 0;
 			if ((change % 1) == 0) {
@@ -132,7 +170,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - $1 bills ");
 			}
-		}
+		}																	//1s end	
 		if (change >= .25) {
 			quantity = 0;
 			if ((change % .25) == 0) {
@@ -151,7 +189,7 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Quarters ");
 			}
-		}
+		}																// Quarters end
 		if (change >= .10) {
 			quantity = 0;
 			if ((change % .10) == 0) {
@@ -170,8 +208,8 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Dimes ");
 			}
-		}
-		if (change >= .049) {
+		}																							//Dimes end
+		if (change >= .049) {//changed to .049 from .05 to catch rounding errors "floating pennies"
 			quantity = 0;
 			if ((change % .05) == 0) {
 				do {
@@ -189,8 +227,8 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Nickels ");
 			}
-		}
-		if (change >= .009) {
+		}																						//Nickels end
+		if (change >= .009) { // Changed to .009 instead of .01 to catch "floating pennies"
 			quantity = 0;
 
 			if ((change % .01) == 0) {
@@ -209,15 +247,15 @@ public class makeChange {
 			} else {
 				System.out.println(quantity + " - Pennies ");
 			}
-		}
+		}																		//Pennies end
 
-		return change;
+		return change;// doesn't get used but it fulfills the duty of returning a double
 
 	}
 
 	public static Double GetChange(double amount, double pay) {
 		DecimalFormat rndDiff = new DecimalFormat("#.00");
-		double changeNeeded = pay - amount;
+		double changeNeeded = pay - amount;// tried to send this number to Currency method a slew of different ways, couldn't find it
 		System.out.println("Looks like that will be $" + (rndDiff.format(changeNeeded)) + " coming back to you\n");
 //		System.out.println(changeNeeded); check Change needed transfer double number
 		Currency(changeNeeded);
