@@ -267,4 +267,5 @@ public class makeChange {
 		System.out.println("\n<----------------->" + "\n|                 |" + "\n|    Goodbye!!    |"
 				+ "\n|                 |" + "\n<----------------->");
 	}
+
 }
