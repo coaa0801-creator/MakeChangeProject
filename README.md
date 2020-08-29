@@ -23,6 +23,25 @@ This is where things get spicy since you want the bills and coins counted out ca
 
 The program pops out the quantity of each denomination and the total amount being given back for verification. The program then thanks you for your purchase and then prompts if you would like to make another purchase or leave once again. Upon choosing leave you are given a goodbye message and the program terminates.
 
+## Struggles
+The guts of this program is the Currency method. Everything else was really just fluff material but I had a good time making and calling new methods. I had a tough time with the penny rounding and when the guest had exactly the denomination in change coming back. I tried multiple different rounding techniques but couldn't get the Pennies to fall in line. So I started doing sysout prints I later commented out, to test the values along the route to the Currency method and noticed the double value would often come out as xx.9999999998 or something along those lines. Because the denominations are so small I moved the boolean for Nickels and Pennies down a place to include some of the more finite rounding errors and got this thing playing along.
+
+Tried to call each Currency as it's own method but couldn't get that to work like I wanted. I probably could have figured it out but I spent plenty of time on the project and I'm fairly happy with the result.
+
+Added some comments in afterword. I need to get better at adding these in for the next person and for myself looking back as I go along so they make more sense for my line of thinking.
+
+## Course Material Used
+1. While Loops
+2. if, else if, else Statements
+3. Variable Initialization & Declaration
+4. Scanner (user input)
+5. Switch Statements & Fall Through
+6. Declaring methods
+7. Pass Through Variables
+8. sysout print and println
+9. Concatenation
+10. Returns
+
 ## Programs Used
 1. Eclipse
 2. Atom
@@ -30,10 +49,3 @@ The program pops out the quantity of each denomination and the total amount bein
 4. GitHub
 5. java
 6. Terminal
-
-## Struggles
-The guts of this program is the Currency method. Everything else was really just fluff material but I had a good time making and calling new methods. I had a tough time with the penny rounding and when the guest had exactly the denomination in change coming back. I tried multiple different rounding techniques but couldn't get the Pennies to fall in line. So I started doing sysout prints I later commented out, to test the values along the route to the Currency method and noticed the double value would often come out as xx.9999999998 or something along those lines. Because the denominations are so small I moved the boolean for Nickels and Pennies down a place to include some of the more finite rounding errors and got this thing playing along.
-
-Tried to call each Currency as it's own method but couldn't get that to work like I wanted. I probably could have figured it out but I spent plenty of time on the project and I'm fairly happy with the result.
-
-Added some comments in afterword. I need to get better at adding these in for the next person and for myself looking back as I go along so they make more sense for my line of thinking.
