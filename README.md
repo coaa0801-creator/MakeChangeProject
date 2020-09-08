@@ -10,7 +10,7 @@ The program is designed to take user input on a cash transaction and return the 
 3. Claim Tax or No Tax
 4. Enter Payment amount
 
-    3a. Make adjustments to Payment amount
+    4a. Make adjustments to Payment amount
 5. Receive Change amount
 6. Choose Purchase or Leave
 
@@ -25,7 +25,7 @@ But this is where things get spicy since you want the bills and coins counted ou
 The program pops out the quantity of each denomination and the total amount being given back for verification. The program then thanks you for your purchase and then prompts if you would like to make another purchase or leave once again. Upon choosing leave you are given a goodbye message and the program terminates.
 
 ## Struggles
-The guts of this program is the Currency method. I spent more time figuring out how to get the boolean statements correct just to get one denomination to recognize and print appropriate change value. Everything else was really just fluff material and glitter but I had a good time making and calling new methods. I had a tough time with the penny rounding and when the guest had exactly the denomination in change coming back. I tried multiple different rounding techniques but couldn't get the Pennies to fall in line. So I started doing sysout prints I later commented out, to test the values along the route to the Currency method and noticed the double value would often come out as xx.9999999998 or something along those lines. Because the denominations are so small I moved the boolean for Nickels and Pennies down a place to include some of the more finite rounding errors and got this thing playing along. I still can't figure out how to get the equations themselves to round. 
+The guts of this program is the Currency method. I spent more time figuring out how to get the boolean statements correct just to get one denomination to recognize and print appropriate change value. Everything else was really just fluff material and glitter but I had a good time making and calling new methods. I had a tough time with the penny rounding and when the guest had exactly the denomination in change coming back. I tried multiple different rounding techniques but couldn't get the Pennies to fall in line. So I started doing sysout prints I later commented out, to test the values along the route to the Currency method and noticed the double value would often come out as xx.9999999998 or something along those lines. Because the denominations are so small I moved the boolean for Nickels and Pennies down a place to include some of the more finite rounding errors and got this thing playing along. I still can't figure out how to get the equations themselves to round.
 
 Tried to call each Currency as it's own method but couldn't get that to work like I wanted. I probably could have figured it out but I spent plenty of time on the project and I'm fairly happy with the result.
 
